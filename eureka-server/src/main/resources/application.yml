@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8080
 spring:
   application:
     name: register-server
@@ -10,11 +10,11 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://admin:admin@peer1:8083/eureka
+      defaultZone: http://admin:admin@${eureka.instance.hostname}:${server.port}/eureka
     fetch-registry: true
     register-with-eureka: true
   instance:
-    hostname: peer1
+    hostname: 172.25.211.5
 management:
   endpoint:
     env:
