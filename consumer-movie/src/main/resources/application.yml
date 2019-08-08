@@ -1,0 +1,13 @@
+
+server:
+  port: 9090
+spring:
+  application:
+    name: cusumer-moive
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@peer1:8082/eureka,http://admin:admin@peer2:8083/eureka
+  instance:
+    prefer-ip-address: true
+

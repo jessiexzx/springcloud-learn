@@ -1,0 +1,42 @@
+
+server:
+  port: 8085
+spring:
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    platform: h2
+    schema: classpath:schema.sql
+    data: classpath:data.sql
+  application:
+    name: provider-user
+
+logging:
+  path: ./logs/
+  level:
+    root: debug
+#management:
+#  server:
+#    port: 9001
+#  endpoints:
+#    web:
+#      base-path: /actuator
+#      exposure:
+#        include: '*'
+#  endpoint:
+#    health:
+#      show-details: always
+#    shutdown:
+#      enabled: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@peer1:8082/eureka,http://admin:admin@peer2:8083/eureka
+  instance:
+    metadata-map:
+      gated-lunch: true
+#  instance:
+#    prefer-ip-address: true
